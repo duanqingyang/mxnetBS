@@ -1,3 +1,4 @@
+#! /bin/sh
 # install cuda, bytescheduler and mxnet
 
 #FROM nvidia/cuda:9.0-cudnn7-devel
