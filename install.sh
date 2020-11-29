@@ -1,7 +1,7 @@
 # install cuda, bytescheduler and mxnet
 
 #FROM nvidia/cuda:9.0-cudnn7-devel
-MY_PATH="/users/duanqing"
+
 
 export MXNET_ROOT=/users/duanqing/incubator-mxnet
 
@@ -12,7 +12,7 @@ export BYTESCHEDULER_WITHOUT_PYTORCH=1
 export LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
 
 
-
+MY_PATH="/users/duanqing"
 cd $MY_PATH
 
 # Install dev tools
@@ -20,6 +20,17 @@ sudo apt-get update && sudo apt-get install -y iputils-ping && sudo apt-get inst
     # duanqingyang adding dependencies 
 sudo apt-get install -y vim git python-dev build-essential &&\
     sudo apt-get install -y wget && sudo wget https://bootstrap.pypa.io/get-pip.py && sudo python get-pip.py
+
+
+# install CUDA Toolkit v9.0
+# instructions from https://developer.nvidia.com/cuda-downloads (linux -> x86_64 -> Ubuntu -> 16.04 -> deb)
+CUDA_REPO_PKG="cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64-deb"
+wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/${CUDA_REPO_PKG}
+sudo dpkg -i ${CUDA_REPO_PKG}
+sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+
 
 # Install gcc 4.9
 mkdir -p "$MY_PATH/gcc/" && cd "$MY_PATH/gcc/" &&\
