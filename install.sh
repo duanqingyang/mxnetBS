@@ -13,7 +13,7 @@ export BYTESCHEDULER_WITHOUT_PYTORCH=1
 export LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
 
 
-MY_PATH="/users/duanqing"
+export MY_PATH="/users/duanqing"
 cd $MY_PATH
 
 # Install dev tools
