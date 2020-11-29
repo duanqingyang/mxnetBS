@@ -77,7 +77,7 @@ pip install bayesian-optimization==1.0.1 six
 cd /usr/local/cuda/lib64 && sudo ln -s stubs/libcuda.so libcuda.so.1
 cd $MY_PATH
 git clone --branch bytescheduler --recursive https://github.com/bytedance/byteps.git && \
-    cd byteps/bytescheduler && sudo python setup.py install &&
+    cd byteps/bytescheduler && sudo python setup.py install 
 sudo rm -f /usr/local/cuda/lib64/libcuda.so.1 && \
     sudo ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/libcuda.so.1 
     # duanqingyang adding to fix mxnet running bug 
