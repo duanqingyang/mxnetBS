@@ -54,6 +54,7 @@ cd "$MY_PATH/gcc/" &&\
     sudo dpkg -i g++-4.9_4.9.3-13ubuntu2_amd64.deb
 
 # Pin GCC to 4.9 (priority 200) to compile correctly against MXNet.
+cd $MY_PATH
 sudo update-alternatives --install /usr/bin/gcc gcc $(readlink -f $(which gcc)) 100 && \
     sudo update-alternatives --install /usr/bin/x86_64-linux-gnu-gcc x86_64-linux-gnu-gcc $(readlink -f $(which gcc)) 100 && \
     sudo update-alternatives --install /usr/bin/g++ g++ $(readlink -f $(which g++)) 100 && \
@@ -72,9 +73,10 @@ cd incubator-mxnet && git reset --hard 75a9e187d00a8b7ebc71412a02ed0e3ae489d91f
 
 # Install ByteScheduler
 pip install bayesian-optimization==1.0.1 six
-cd /usr/local/cuda/lib64 && ln -s stubs/libcuda.so libcuda.so.1
+cd /usr/local/cuda/lib64 && sudo ln -s stubs/libcuda.so libcuda.so.1
+cd $MY_PATH
 git clone --branch bytescheduler --recursive https://github.com/bytedance/byteps.git && \
-    cd byteps/bytescheduler && python setup.py install
+    cd byteps/bytescheduler && sudo python setup.py install
 sudo rm -f /usr/local/cuda/lib64/libcuda.so.1 && \
     sudo ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/libcuda.so.1 
     # duanqingyang adding to fix mxnet running bug 
