@@ -1,5 +1,5 @@
 #! /bin/bash
-# install cuda, bytescheduler and mxnet
+# install cuda, bytescheduler and mxnet for Ubuntu 16
 
 #FROM nvidia/cuda:9.0-cudnn7-devel
 
