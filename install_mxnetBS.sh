@@ -4,6 +4,8 @@
 #FROM nvidia/cuda:9.0-cudnn7-devel
 
 
+
+
 export MXNET_ROOT=/users/duanqing/incubator-mxnet
 
 export USE_BYTESCHEDULER=1
@@ -31,6 +33,11 @@ sudo dpkg -i ${CUDA_REPO_PKG}
 sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
 sudo apt-get update
 sudo apt-get -y install cuda
+
+
+sudo ldconfig /usr/local/cuda/lib64
+
+
 
 
 # Install gcc 4.9
