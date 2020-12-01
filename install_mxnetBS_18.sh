@@ -65,14 +65,15 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 200 && \
     sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 200 && \
     sudo update-alternatives --install /usr/bin/x86_64-linux-gnu-g++ x86_64-linux-gnu-g++ /usr/bin/g++-4.9 200
 
-pip install mxnet-cu90==1.5.0
+sudo pip install mxnet-cu90==1.5.0
+export LD_LIBRARY_PATH="/usr/local/lib/python2.7/dist-packages/mxnet/:${LD_LIBRARY_PATH}"
 
 # Clone MXNet as ByteScheduler compilation needs header files
 git clone --recursive --branch v1.5.x https://github.com/apache/incubator-mxnet.git
 cd incubator-mxnet && git reset --hard 75a9e187d00a8b7ebc71412a02ed0e3ae489d91f
 
 # Install ByteScheduler
-pip install bayesian-optimization==1.0.1 six
+sudo pip install bayesian-optimization==1.0.1 six
 cd /usr/local/cuda/lib64 && sudo ln -s stubs/libcuda.so libcuda.so.1
 cd $MY_PATH
 git clone --branch bytescheduler --recursive https://github.com/bytedance/byteps.git && \
