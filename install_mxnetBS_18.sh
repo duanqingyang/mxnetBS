@@ -12,7 +12,7 @@ export USE_BYTESCHEDULER=1
 export BYTESCHEDULER_WITH_MXNET=1
 export BYTESCHEDULER_WITHOUT_PYTORCH=1
 
-export LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
+
 
 
 export MY_PATH="/users/duanqing"
@@ -28,7 +28,8 @@ sudo apt-get install -y vim git python-dev build-essential &&\
 # install Nvidia Driver , then install CUDA Toolkit v9.0, with instructions from "https://github.com/akirademoss/cuda-9.0-installation-on-ubuntu-18.04"
 
 sudo ldconfig /usr/local/cuda/lib64
-
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
+export PATH="/usr/local/cuda/bin:${PATH}"
 
 
 
