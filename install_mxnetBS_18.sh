@@ -30,7 +30,7 @@ sudo apt install nvidia-driver-450
 sudo apt install nvidia-modprobe
 wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
 sh cuda_9.0.176_384.81_linux-run --override ##chose your own install location
-
+edit .bashrc to add cuda/bin and cuda/lib64 to PATH and LD_LIBRARY_PATH
 
 # sudo ldconfig /usr/local/cuda/lib64
 # export LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
