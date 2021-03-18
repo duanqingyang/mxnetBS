@@ -27,6 +27,7 @@ sudo apt-get install -y vim git python-dev build-essential &&\
 
 # install Nvidia Driver , then install CUDA Toolkit v9.0, with instructions from "https://github.com/akirademoss/cuda-9.0-installation-on-ubuntu-18.04"
 sudo apt install nvidia-driver-450
+sudo apt install nvidia-modprobe
 wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
 sh cuda_9.0.176_384.81_linux-run --override ##chose your own install location
 
