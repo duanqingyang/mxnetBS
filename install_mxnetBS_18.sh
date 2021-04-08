@@ -7,16 +7,12 @@
 
 
 export MXNET_ROOT=/users/duanqing/incubator-mxnet
-
 export USE_BYTESCHEDULER=1
 export BYTESCHEDULER_WITH_MXNET=1
 export BYTESCHEDULER_WITHOUT_PYTORCH=1
-
-
-
-
 export MY_PATH="/users/duanqing"
 cd $MY_PATH
+
 
 # Install dev tools
 sudo apt-get update && sudo apt-get install -y iputils-ping && sudo apt-get install -y apt-utils &&  sudo apt-get install -y net-tools
@@ -28,13 +24,17 @@ sudo apt-get install -y vim git python-dev build-essential &&\
 # install Nvidia Driver , then install CUDA Toolkit v9.0, with instructions from "https://github.com/akirademoss/cuda-9.0-installation-on-ubuntu-18.04"
 sudo apt install nvidia-driver-450
 sudo apt install nvidia-modprobe
+sudo reboot
+nvidia-smi 
+# if it doesn't work, use cmds below according to  https://github.com/DisplayLink/evdi/issues/215
+# git clone --depth 1 https://github.com/DisplayLink/evdi.git
+# cd evdi
+# make
 wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
 sh cuda_9.0.176_384.81_linux-run --override ##chose your own install location
 edit .bashrc to add cuda/bin and cuda/lib64 to PATH and LD_LIBRARY_PATH
-
 # sudo ldconfig /usr/local/cuda/lib64
-# export LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
-# export PATH="/usr/local/cuda/bin:${PATH}"
+
 
 
 
