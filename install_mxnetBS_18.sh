@@ -37,7 +37,7 @@ nvidia-smi
 wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
 sh cuda_9.0.176_384.81_linux-run --override ##chose your own install location
 edit .bashrc to add cuda/bin and cuda/lib64 to PATH and LD_LIBRARY_PATH
-# sudo ldconfig /usr/local/cuda/lib64
+sudo ldconfig ..../cuda/lib64
 
 
 
