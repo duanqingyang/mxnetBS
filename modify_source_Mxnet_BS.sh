@@ -23,6 +23,8 @@
   cd bytescheduler/
   vim setup.py to add MXNET_ROOT path
   sudo python setup.py install  --user 
+  One problem: cannot find **.so, this is because LD_LIBRARY_PATH in sudo is dofferent
+       we need to add lib path to /etc/ld.so.conf then run sudo ldconfig
 
 6) modify BS:
   python -m pip uninstall bytescheduler #uninstall
