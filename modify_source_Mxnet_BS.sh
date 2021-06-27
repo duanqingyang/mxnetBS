@@ -1,24 +1,34 @@
-install mxnet from source: 
-1) pre-requisite: 
-     sudo apt install libopencv-dev
+1) install mxnet from pip
+ pip install --user mxnet-cu90==1.5.0 # will appear at ~/.local/lib/python2.7/site-packages/mxnet
+
+2) install mxnet from source: 
+ pre-requisite: 
+      sudo apt install libopencv-dev
       sudo apt-get install libatlas-base-dev
-2) cd mxnet/
-3) make
-4) python -m pip install --user -e ./python  
+ cd mxnet/
+ make
+ python -m pip install --user -e ./python  
 #Note that the -e flag is optional. It is equivalent to --editable 
 #and means that if you edit the source files, these changes will be reflected in the package installed
 
+3) modify Mxnet python lib:
+     modify Mxnet python code in ~/incubator-mxnet/python
+     # mxnet python lib in ~/.local/lib/python2.7  is link to  ~/incubator-mxnet/python. So dont need to do python install again
 
-modify BS:
-1) change BS python code in ~/Bytescheduler
-2) sudo python setup.py install --user   # will update BS lib python in ~/.local/lib/python2.7
+4) modify Mxnet c++ lib:
+     modify Mxnet c++ code in ~/incubator-mxnet/src
+     make again so to update libmxnet.so in ~/incubator-mxnet/lib, which is used by mxnet python lib in ~/incubator-mxnet/python
+
+5) install BS
+  cd bytescheduler/
+  vim setup.py to add MXNET_ROOT path
+  sudo python setup.py install  --user 
+
+6) modify BS:
+  python -m pip uninstall bytescheduler #uninstall
+  change BS python code in ~/Bytescheduler
+  sudo python setup.py install --user   # will update BS lib python in ~/.local/lib/python2.7
 
 
-modify Mxnet python lib:
-1) modify Mxnet python code in ~/incubator-mxnet/python
-# mxnet python lib in ~/.local/lib/python2.7  is link to  ~/incubator-mxnet/python. So dont need to do python install again
 
-modify Mxnet c++ lib:
-1) modify Mxnet c++ code in ~/incubator-mxnet/src
-2) make again so to update libmxnet.so in ~/incubator-mxnet/lib, which is used by mxnet python lib in ~/incubator-mxnet/python
 
