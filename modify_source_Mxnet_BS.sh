@@ -3,8 +3,8 @@
 
 2) install mxnet from source: 
  pre-requisite: 
-      sudo apt install libopencv-dev
-      sudo apt-get install libatlas-base-dev
+      sudo apt install libopencv-dev -y
+      sudo apt-get install libatlas-base-dev  -y
       install nvidia-driver-460 , install cuda-9.0
       sudo vim /etc/ld.so.conf #add path: cuda-9.0/lib64
       sudo ldconfig
