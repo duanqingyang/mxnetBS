@@ -5,6 +5,9 @@
  pre-requisite: 
       sudo apt install libopencv-dev
       sudo apt-get install libatlas-base-dev
+      install nvidia-driver-460 , install cuda-9.0
+      sudo vim /etc/ld.so.conf #add path: cuda-9.0/lib64
+      sudo ldconfig
  cd mxnet/
  make
  python -m pip install --user -e ./python  
