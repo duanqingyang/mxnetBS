@@ -23,6 +23,8 @@
      make again so to update libmxnet.so in ~/incubator-mxnet/lib, which is used by mxnet python lib in ~/incubator-mxnet/python
 
 5) install BS
+  pre-requisite: 
+    sudo pip install bayesian-optimization==1.0.1 six
   cd bytescheduler/
   vim setup.py to add MXNET_ROOT path
   sudo python setup.py install  --user 
